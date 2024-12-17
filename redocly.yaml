@@ -31,3 +31,12 @@ logo:
   altText: 'Quantiverse Studios'
   link: /
   srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
+
+navbar: 
+  items: 
+    - page: ./apis/museum.yam
+      label: 'Museum APIs'  
+    - page: ./apis/petstore.yaml
+      label: 'Pet Store APIs'
+    - page: ./apis/train-travel.yaml
+      label: 'Train Travel APIs'
