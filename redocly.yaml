@@ -25,3 +25,9 @@ rules:
 
 ignore:
   - .github
+
+logo: 
+  # image: ./images/quantiverse-light-mode.png
+  altText: 'Quantiverse Studios'
+  link: /
+  srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
