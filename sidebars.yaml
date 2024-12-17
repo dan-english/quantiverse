@@ -1,0 +1,17 @@
+- page: index.md
+  label: Home
+
+- page: about.md
+  label: About
+
+- group: API Guides
+  items:
+    - page: ./apiguides/PetStoreGuide.md
+    - page: ./apiguides/MuseumGuide.md
+    - page: ./apiguides/TrainTravelGuide.md
+
+- group: Pet Store APIs
+  page: ./apiguides/PetStoreGuide.md
+  items:
+    - separatorLine: true
+    - page: ./apis/petstore.yaml
