@@ -1,6 +1,6 @@
 apis:
   main:
-    root: ./openapi.yaml
+    root: ./index.md
 extends:
   - minimal
 rules:
