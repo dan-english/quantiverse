@@ -13,6 +13,31 @@ info:
 servers:
   - url: "https://redocly.com/_mock/docs/openapi/museum-api"
 paths:
+
+  /dino-details:
+    get: 
+      summary: Get dinosaur details
+      description: Get the details of a dinosaur by name.
+      operationId: getDinoDetails
+      tags: 
+        -  Operations
+      parameters: 
+        - $ref: "#/components/parameters/DinoName"
+      responses:
+          "200":
+            description: Success.
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/DinoDetails"
+                examples:
+                  default_example:
+                    $ref: "#/components/examples/GetDinoDetailsResponseExample"
+          "400":
+            $ref: '#/components/responses/BadRequest'
+          "404":
+            $ref: '#/components/responses/NotFound'        
+
   /museum-hours:
     get:
       summary: Get museum hours
@@ -240,6 +265,15 @@ webhooks:
 
 components:
   schemas:
+    DinoDetails:
+      description: Details for a specific dinosaur
+      type: object
+      properties: 
+        name:
+          type: string
+        age:
+          type: string
+
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
       type: string
@@ -420,6 +454,12 @@ components:
       type: http
       scheme: basic
   examples:
+    GetDinoDetailsResponseExample:
+      summary: Dino details response
+      value: 
+        name: 'Bronto Brad'
+        age: '1000 years'
+   
     BuyGeneralTicketsRequestExample:
       summary: General entry ticket
       value:
@@ -621,6 +661,13 @@ components:
           timeOpen: "10:00"
           timeClose: "16:00"
   parameters:
+    DinoName:
+      name: DinoName
+      in: query
+      description: The name of the dinosaur
+      schema: 
+        type: string
+        example: "Bronto Brad"
     PaginationPage:
       name: page
       in: query
