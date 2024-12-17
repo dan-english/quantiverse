@@ -33,10 +33,47 @@ logo:
   srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
 
 navbar: 
-  items: 
-    - page: ./apis/museum.yam
-      label: 'Museum APIs'  
-    - page: ./apis/petstore.yaml
-      label: 'Pet Store APIs'
-    - page: ./apis/train-travel.yaml
-      label: 'Train Travel APIs'
+  items:
+   - page: /catalog/
+    # - page: ./apis/product-1/museum.yaml
+    #   label: 'Museum APIs'  
+#     - page: ./apis/product-2/petstore.yaml
+#       label: 'Pet Store APIs'
+#     - page: ./apis/product-3/train-travel.yaml
+#       label: 'Train Travel APIs'
+
+
+# https://redocly.com/docs/realm/config/catalog
+# https://redocly.com/docs/realm/author/how-to/add-catalog
+
+catalog: 
+  museum-catalog:
+    title: API Catalog
+    description: 'A description for the API catalog'
+    slug: /catalog/
+
+    items:
+      - directory: ./apis/product-1/
+        flatten: true
+        includeByMetadata:
+          type: [openapi]
+
+      - directory: ./apis/product-3/
+        flatten: true
+        includeByMetadata:
+          type: [openapi] 
+ 
+      - directory: ./apis/product-2/
+        flatten: true
+        includeByMetadata:
+          type: [openapi]     
+
+
+    filters:
+      - title: API Category
+        property: category
+        missingCategoryName: Other
+    
+    groupByFirstFilter: true
+
+      

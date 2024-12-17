@@ -14,13 +14,13 @@
   page: ./apiguides/PetStoreGuide.md
   items:
     - separatorLine: true
-    - page: ./apis/petstore.yaml
+    - page: ./apis/product-2/petstore.yaml
 
 - group: Train Travel APIs
   page: ./apiguides/TrainTravelGuide.md
   items:
     - separatorLine: true
-    - page: ./apis/train-travel.yaml
+    - page: ./apis/product-3/train-travel.yaml
 
 
 #  This was interesting when no group name is specified the label attribute gets used.
@@ -29,4 +29,4 @@
   label: Museum API & Guide
   items:
     - separatorLine: true
-    - page: ./apis/museum.yaml
+    - page: ./apis/product-1/museum.yaml
