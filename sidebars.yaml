@@ -4,6 +4,8 @@
 - page: about.md
   label: About
 
+- page: why.md  
+
 # - group: API Guides
 #   items:
 #     - page: ./apiguides/PetStoreGuide.md
@@ -11,13 +13,13 @@
 #     - page: ./apiguides/TrainTravelGuide.md
 
 - group: Pet Store APIs
-  page: ./apiguides/PetStoreGuide.md
+  page: ./apis/product-2/PetStoreGuide.md
   items:
     - separatorLine: true
     - page: ./apis/product-2/petstore.yaml
 
 - group: Train Travel APIs
-  page: ./apiguides/TrainTravelGuide.md
+  page: ./apis/product-3/TrainTravelGuide.md
   items:
     - separatorLine: true
     - page: ./apis/product-3/train-travel.yaml
@@ -25,7 +27,7 @@
 
 #  This was interesting when no group name is specified the label attribute gets used.
 - group:
-  page: ./apiguides/MuseumGuide.md
+  page: ./apis/product-1/MuseumGuide.md
   label: Museum API & Guide
   items:
     - separatorLine: true
