@@ -13,3 +13,8 @@
 :root.dark {
     --h1-text-color:#ff0000;
 }
+
+:root div[data-component-name="Admonition/Admonition"][type="danger"] {
+    font-weight:bold;
+    border:2px solid #00ff00;
+}
