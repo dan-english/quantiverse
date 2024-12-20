@@ -58,8 +58,6 @@ catalog:
         includeByMetadata:
           type: [openapi]
 
-
-
     filters:
       - title: API Category
         property: category
