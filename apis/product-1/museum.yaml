@@ -10,6 +10,8 @@ info:
   license:
     name: MIT
     url: "https://opensource.org/license/mit/"
+  x-metadata:  
+    category: Museum
 servers:
   - url: "https://redocly.com/_mock/docs/openapi/museum-api"
 paths:
@@ -23,6 +25,8 @@ paths:
         -  Operations
       parameters: 
         - $ref: "#/components/parameters/DinoName"
+      security: []
+    
       responses:
           "200":
             description: Success.

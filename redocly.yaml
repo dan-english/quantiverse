@@ -34,13 +34,13 @@ logo:
 
 navbar: 
   items:
-   - page: /catalog/
-    # - page: ./apis/product-1/museum.yaml
-    #   label: 'Museum APIs'  
-#     - page: ./apis/product-2/petstore.yaml
-#       label: 'Pet Store APIs'
-#     - page: ./apis/product-3/train-travel.yaml
-#       label: 'Train Travel APIs'
+    - page: /catalog/
+    - page: ./apis/product-1/museum.yaml
+      label: 'Museum APIs'  
+    - page: ./apis/product-2/petstore.yaml
+      label: 'Pet Store APIs'
+    - page: ./apis/product-3/train-travel.yaml
+      label: 'Train Travel APIs'    
 
 
 # https://redocly.com/docs/realm/config/catalog
@@ -53,21 +53,10 @@ catalog:
     slug: /catalog/
 
     items:
-      - directory: ./apis/product-1/
+      - directory: ./apis/
         flatten: true
         includeByMetadata:
           type: [openapi]
-
-      - directory: ./apis/product-3/
-        flatten: true
-        includeByMetadata:
-          type: [openapi] 
- 
-      - directory: ./apis/product-2/
-        flatten: true
-        includeByMetadata:
-          type: [openapi]     
-
 
     filters:
       - title: API Category
