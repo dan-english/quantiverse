@@ -1,0 +1,15 @@
+:root {
+--logo-height:8em;
+--logo-width:auto;
+--logo-margin:10px;
+--logo-max-wdith:250px;
+--logo-max-height:250px;
+
+
+--h1-text-color:#0000dd;
+--h2-text-color:#00ff00;
+}
+
+:root.dark {
+    --h1-text-color:#ff0000;
+}

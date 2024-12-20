@@ -1,6 +1,6 @@
 apis:
   main:
-    root: ./openapi.yaml
+    root: ./index.md
 extends:
   - minimal
 rules:
@@ -25,3 +25,44 @@ rules:
 
 ignore:
   - .github
+
+logo: 
+  # image: ./images/quantiverse-light-mode.png
+  altText: 'Quantiverse Studios'
+  link: /
+  srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
+
+navbar: 
+  items:
+    - page: /catalog/
+    - page: ./apis/product-1/museum.yaml
+      label: 'Museum APIs'  
+    - page: ./apis/product-2/petstore.yaml
+      label: 'Pet Store APIs'
+    - page: ./apis/product-3/train-travel.yaml
+      label: 'Train Travel APIs'    
+
+
+# https://redocly.com/docs/realm/config/catalog
+# https://redocly.com/docs/realm/author/how-to/add-catalog
+
+catalog: 
+  museum-catalog:
+    title: API Catalog
+    description: 'A description for the API catalog'
+    slug: /catalog/
+
+    items:
+      - directory: ./apis/
+        flatten: true
+        includeByMetadata:
+          type: [openapi]
+
+    filters:
+      - title: API Category
+        property: category
+        missingCategoryName: Other
+    
+    groupByFirstFilter: true
+
+      

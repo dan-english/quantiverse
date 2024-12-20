@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Redocly Museum API
   description: Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly.
-  version: 1.1.1
+  version: 1.2.1
   termsOfService: 'https://redocly.com/subscription-agreement/'
   contact:
     email: team@redocly.com
@@ -10,9 +10,38 @@ info:
   license:
     name: MIT
     url: "https://opensource.org/license/mit/"
+  x-metadata:  
+    category: Museum
 servers:
-  - url: "https://api.fake-museum-example.com/v1.1"
+  - url: "https://redocly.com/_mock/docs/openapi/museum-api"
 paths:
+
+  /dino-details:
+    get: 
+      summary: Get dinosaur details
+      description: Get the details of a dinosaur by name.
+      operationId: getDinoDetails
+      tags: 
+        -  Operations
+      parameters: 
+        - $ref: "#/components/parameters/DinoName"
+      security: []
+    
+      responses:
+          "200":
+            description: Success.
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/DinoDetails"
+                examples:
+                  default_example:
+                    $ref: "#/components/examples/GetDinoDetailsResponseExample"
+          "400":
+            $ref: '#/components/responses/BadRequest'
+          "404":
+            $ref: '#/components/responses/NotFound'        
+
   /museum-hours:
     get:
       summary: Get museum hours
@@ -30,7 +59,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetMuseumHoursResponse"
+                $ref: "#/components/schemas/MuseumHours"
               examples:
                 default_example:
                   $ref: "#/components/examples/GetMuseumHoursResponseExample"
@@ -50,7 +79,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateSpecialEventRequest"
+              $ref: "#/components/schemas/SpecialEvent"
             examples:
               default_example:
                 $ref: "#/components/examples/CreateSpecialEventRequestExample"
@@ -60,7 +89,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SpecialEventResponse"
+                $ref: "#/components/schemas/SpecialEvent"
               examples:
                 default_example:
                   $ref: "#/components/examples/CreateSpecialEventResponseExample"
@@ -85,7 +114,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ListSpecialEventsResponse"
+                $ref: "#/components/schemas/SpecialEventCollection"
               examples:
                 default_example:
                   $ref: "#/components/examples/ListSpecialEventsResponseExample"
@@ -108,7 +137,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SpecialEventResponse"
+                $ref: "#/components/schemas/SpecialEvent"
               examples:
                 default_example:
                   $ref: "#/components/examples/GetSpecialEventResponseExample"
@@ -129,7 +158,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateSpecialEventRequest"
+              $ref: "#/components/schemas/SpecialEventFields"
             examples:
               default_example:
                 $ref: "#/components/examples/UpdateSpecialEventRequestExample"
@@ -139,7 +168,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SpecialEventResponse"
+                $ref: "#/components/schemas/SpecialEvent"
               examples:
                 default_example:
                   $ref: "#/components/examples/UpdateSpecialEventResponseExample"
@@ -176,7 +205,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/BuyMuseumTicketsRequest"
+              $ref: "#/components/schemas/BuyMuseumTickets"
             examples:
               general_entry:
                 $ref: "#/components/examples/BuyGeneralTicketsRequestExample"
@@ -188,7 +217,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BuyMuseumTicketsResponse"
+                $ref: "#/components/schemas/MuseumTicketsConfirmation"
               examples:
                 general_entry:
                   $ref: "#/components/examples/BuyGeneralTicketsResponseExample"
@@ -213,13 +242,42 @@ paths:
           content:
             image/png:
               schema:
-                $ref: "#/components/schemas/GetTicketCodeResponse"
+                $ref: "#/components/schemas/TicketCodeImage"
         "400":
           $ref: '#/components/responses/BadRequest'
         "404":
           $ref: '#/components/responses/NotFound'
+webhooks:
+  publishNewEvent:
+    post:
+      summary: New special event added
+      description: Publish details of a new or updated event.
+      operationId: publishNewEvent
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SpecialEvent"
+            examples:
+              default_example:
+                $ref: "#/components/examples/GetSpecialEventResponseExample"
+      responses:
+        "202":
+          description: Data accepted.
+
 components:
   schemas:
+    DinoDetails:
+      description: Details for a specific dinosaur
+      type: object
+      properties: 
+        name:
+          type: string
+        age:
+          type: string
+
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
       type: string
@@ -236,30 +294,15 @@ components:
       type: string
       format: email
       example: museum-lover@example.com
-    Phone:
-      description: Phone number for the ticket purchaser (optional).
-      type: string
-      example: '+1(234)-567-8910'
-    BuyMuseumTicketsRequest:
-      description: Request payload used for purchasing museum tickets.
+    BuyMuseumTickets:
+      description: Data to purchase a ticket.
       type: object
-      properties:
-        ticketType:
-          $ref: "#/components/schemas/TicketType"
-        eventId:
-          description: Unique identifier for a special event. Required if purchasing tickets for the museum's special events.
-          $ref: "#/components/schemas/EventId"
-        ticketDate:
-          description: Date that the ticket is valid for.
-          $ref: "#/components/schemas/Date"
-        email:
-          $ref: "#/components/schemas/Email"
-        phone:
-          $ref: "#/components/schemas/Phone"
-      required:
-        - ticketType
-        - ticketDate
-        - email
+      allOf:
+        - type: object
+          properties:
+            email:
+              $ref: "#/components/schemas/Email"
+        - $ref: "#/components/schemas/Ticket"
     TicketMessage:
       description: Confirmation message after a ticket purchase.
       type: string
@@ -273,35 +316,42 @@ components:
       description: Unique confirmation code used to verify ticket purchase.
       type: string
       example: 'ticket-event-a98c8f-7eb12'
-    BuyMuseumTicketsResponse:
-      description: Details for a museum ticket after a successful purchase.
+    Ticket:
+      description: Ticket for museum entry, can be general admission or special event.
       type: object
       properties:
-        message:
-          $ref: "#/components/schemas/TicketMessage"
-        eventName:
-          $ref: "#/components/schemas/EventName"
         ticketId:
           $ref: "#/components/schemas/TicketId"
+        ticketDate:
+          description: Date when this ticket can be used for museum entry.
+          $ref: "#/components/schemas/Date"
         ticketType:
           $ref: "#/components/schemas/TicketType"
-        ticketDate:
-          description: Date the ticket is valid for.
-          $ref: "#/components/schemas/Date"
-        confirmationCode:
-          $ref: "#/components/schemas/TicketConfirmation"
+        eventId:
+          description: Unique identifier for a special event. Required if purchasing tickets for the museum's special events.
+          $ref: "#/components/schemas/EventId"
       required:
-        - message
-        - ticketId
         - ticketType
         - ticketDate
-        - confirmationCode
-    GetTicketCodeResponse:
+    MuseumTicketsConfirmation:
+      description: Details for a museum ticket after a successful purchase.
+      allOf:
+        - $ref: "#/components/schemas/Ticket"
+        - type: object
+          properties:
+            message:
+              $ref: "#/components/schemas/TicketMessage"
+            confirmationCode:
+              $ref: "#/components/schemas/TicketConfirmation"
+          required:
+            - message
+            - confirmationCode
+    TicketCodeImage:
       description: Image of a ticket with a QR code used for museum or event entry.
       type: string
       format: binary
-    GetMuseumHoursResponse:
-      description: List of museum operating hours for consecutive days.
+    MuseumHours:
+      description: List of museum operating hours for a date range.
       type: array
       items:
         $ref: "#/components/schemas/MuseumDailyHours"
@@ -354,8 +404,7 @@ components:
       type: number
       format: float
       example: 25
-    CreateSpecialEventRequest:
-      description: Request payload for creating new special events at the museum.
+    SpecialEventFields:
       type: object
       properties:
         name:
@@ -368,33 +417,7 @@ components:
           $ref: "#/components/schemas/EventDates"
         price:
           $ref: "#/components/schemas/EventPrice"
-      required:
-        - name
-        - location
-        - eventDescription
-        - dates
-        - price
-    UpdateSpecialEventRequest:
-      description: Request payload for updating an existing special event. Only included fields are updated in the event.
-      type: object
-      properties:
-        name:
-          $ref: "#/components/schemas/EventName"
-        location:
-          $ref: "#/components/schemas/EventLocation"
-        eventDescription:
-          $ref: "#/components/schemas/EventDescription"
-        dates:
-          $ref: "#/components/schemas/EventDates"
-        price:
-          $ref: "#/components/schemas/EventPrice"
-    ListSpecialEventsResponse:
-      description: List of upcoming special events.
-      type: array
-      items:
-        $ref: "#/components/schemas/SpecialEventResponse"
-    SpecialEventResponse:
-      description: Information about a special event.
+    SpecialEvent:
       type: object
       properties:
         eventId:
@@ -410,12 +433,16 @@ components:
         price:
           $ref: "#/components/schemas/EventPrice"
       required:
-        - eventId
         - name
         - location
         - eventDescription
         - dates
         - price
+    SpecialEventCollection:
+      description: List of upcoming special events.
+      type: array
+      items:
+        $ref: "#/components/schemas/SpecialEvent"
     Error:
       type: object
       properties:
@@ -431,6 +458,12 @@ components:
       type: http
       scheme: basic
   examples:
+    GetDinoDetailsResponseExample:
+      summary: Dino details response
+      value: 
+        name: 'Bronto Brad'
+        age: '1000 years'
+   
     BuyGeneralTicketsRequestExample:
       summary: General entry ticket
       value:
@@ -440,7 +473,7 @@ components:
     BuyEventTicketsRequestExample:
       summary: Special event ticket
       value:
-        ticketType: general
+        ticketType: event
         eventId: dad4bce8-f5cb-4078-a211-995864315e39
         ticketDate: '2023-09-05'
         email: todd@example.com
@@ -632,6 +665,13 @@ components:
           timeOpen: "10:00"
           timeClose: "16:00"
   parameters:
+    DinoName:
+      name: DinoName
+      in: query
+      description: The name of the dinosaur
+      schema: 
+        type: string
+        example: "Bronto Brad"
     PaginationPage:
       name: page
       in: query
