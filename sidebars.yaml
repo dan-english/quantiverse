@@ -4,7 +4,7 @@
 - page: about.md
   label: About
 
-- page: why.md  
+- page: architecture.md  
 
 # - group: API Guides
 #   items:
