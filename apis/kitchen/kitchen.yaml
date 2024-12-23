@@ -1,0 +1,219 @@
+openapi: 3.1.0
+info:
+  title: Ingredients API
+  version: 1.0.0
+  description: API for managing ingredients in a kitchen.
+servers:
+  - url: https://api.example.com
+    description: Production server
+paths:
+  /ingredients:
+    post:
+      summary: Add a new ingredient
+      operationId: createIngredient
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kitchenId:
+                  type: string
+                  example: altman-family
+                name:
+                  type: string
+                  example: broccoli
+                quantity:
+                  type: number
+                  format: float
+                  example: 1.5
+                unit:
+                  type: string
+                  example: cups
+                useBefore:
+                  type: string
+                  format: date-time
+                  example: 2019-08-24T14:15:22Z
+              required:
+                - kitchenId
+                - name
+                - quantity
+                - unit
+                - useBefore
+      responses:
+        '201':
+          description: Ingredient created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                  object:
+                    type: string
+                    example: ingredient
+                  kitchenId:
+                    type: string
+                    example: altman-family
+                  name:
+                    type: string
+                    example: broccoli
+                  quantity:
+                    type: number
+                    format: float
+                    example: 1.5
+                  unit:
+                    type: string
+                    example: cups
+                  useBefore:
+                    type: string
+                    format: date-time
+                    example: 2019-08-24T14:15:22Z
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: 2019-08-24T14:15:22Z
+    get:
+      summary: List all ingredients
+      operationId: listIngredients
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            example: 10
+        - name: cursor
+          in: query
+          schema:
+            type: string
+          example: ZG9uJ3QgZGVjb2RlIG1l
+      responses:
+        '200':
+          description: List of ingredients retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    example: list
+                  page:
+                    type: object
+                    properties:
+                      endCursor:
+                        type: string
+                        example: ZG9uJ3QgZGVjb2RlIG1l
+                      startCursor:
+                        type: string
+                        example: ZG9uJ3QgZGVjb2RlIG1l
+                      hasNextPage:
+                        type: boolean
+                        example: false
+                      hasPrevPage:
+                        type: boolean
+                        example: false
+                      limit:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 1
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        object:
+                          type: string
+                          example: ingredient
+                        kitchenId:
+                          type: string
+                          example: altman-family
+                        name:
+                          type: string
+                          example: broccoli
+                        quantity:
+                          type: number
+                          format: float
+                          example: 1.5
+                        unit:
+                          type: string
+                          example: cups
+                        useBefore:
+                          type: string
+                          format: date-time
+                          example: 2019-08-24T14:15:22Z
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: 2019-08-24T14:15:22Z
+                  total:
+                    type: integer
+                    example: 1
+
+  /ingredients/{ingredientId}:
+    get:
+      summary: Get an ingredient by ID
+      operationId: getIngredient
+      parameters:
+        - name: ingredientId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+      responses:
+        '200':
+          description: Ingredient retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                  object:
+                    type: string
+                    example: ingredient
+                  kitchenId:
+                    type: string
+                    example: altman-family
+                  name:
+                    type: string
+                    example: broccoli
+                  quantity:
+                    type: number
+                    format: float
+                    example: 1.5
+                  unit:
+                    type: string
+                    example: cups
+                  useBefore:
+                    type: string
+                    format: date-time
+                    example: 2019-08-24T14:15:22Z
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: 2019-08-24T14:15:22Z
+              example:
+                id: efdbb9d1-02c2-4bc3-afb7-6788d8782b1e
+                object: "ingredient"
+                kitchenId: "altman-family"
+                name: "broccoli"
+                quantity: 1.5
+                unit: "cups"
+                useBefore : ""
+                createdAt: ""
