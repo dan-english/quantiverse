@@ -11,6 +11,3 @@
         favFood: "Nachos"
     }
 /%}
-
-
-Project 5 - Partials!

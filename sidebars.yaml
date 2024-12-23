@@ -4,7 +4,7 @@
 - page: about.md
   label: About
 
-- page: why.md  
+- page: architecture.md  
 
 # - group: API Guides
 #   items:
@@ -23,6 +23,12 @@
   items:
     - separatorLine: true
     - page: ./apis/product-3/train-travel.yaml
+
+- group: Kitchen APIs
+  # page: ./apis/product-3/TrainTravelGuide.md
+  items:
+    - separatorLine: true
+    - page: ./apis/kitchen/kitchen.yaml
 
 
 #  This was interesting when no group name is specified the label attribute gets used.
