@@ -6,11 +6,13 @@
 
 - page: architecture.md  
 
-# - group: API Guides
-#   items:
-#     - page: ./apiguides/PetStoreGuide.md
-#     - page: ./apiguides/MuseumGuide.md
-#     - page: ./apiguides/TrainTravelGuide.md
+
+- group: API Guides
+  items:
+    - page: ./apis/product-2/PetStoreGuide.md
+    - page: ./apis/product-1/MuseumGuide.md
+    - page: ./apis/product-3/TrainTravelGuide.md
+    - page: ./remote/guide/d-kitchen/kitchen-guide.md
 
 - group: Pet Store APIs
   page: ./apis/product-2/PetStoreGuide.md
@@ -25,7 +27,8 @@
     - page: ./apis/product-3/train-travel.yaml
 
 - group: Kitchen APIs
-  # page: ./apis/product-3/TrainTravelGuide.md
+  page: ./remote/guide/d-kitchen/kitchen-guide.md
+  label: Kitchen API & Into
   items:
     - separatorLine: true
     - page: ./apis/kitchen/kitchen.yaml
