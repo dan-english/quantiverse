@@ -64,3 +64,14 @@ catalog:
         missingCategoryName: Other
     
     groupByFirstFilter: true
+ 
+# the order of this determins the order in the dropdown 
+l10n:
+  defaultLocale: en
+  locales:
+    - code: fr
+      name: French
+    - code: en
+      name: English
+    - code: es-ES
+      name: Spanish (Spain)
