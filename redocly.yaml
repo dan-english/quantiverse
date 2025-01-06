@@ -75,3 +75,5 @@ l10n:
       name: English
     - code: es-ES
       name: Spanish (Spain)
+
+requiresLogin: true
