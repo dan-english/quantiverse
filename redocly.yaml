@@ -40,8 +40,9 @@ navbar:
     - page: ./apis/product-2/petstore.yaml
       label: 'Pet Store APIs'
     - page: ./apis/product-3/train-travel.yaml
-      label: 'Train Travel APIs'    
-
+      label: 'Train APIs'    
+    - page: ./apis/admin/admin.yaml
+      label: 'Admin API'   
 
 # https://redocly.com/docs/realm/config/catalog
 # https://redocly.com/docs/realm/author/how-to/add-catalog
@@ -75,3 +76,12 @@ l10n:
       name: English
     - code: es-ES
       name: Spanish (Spain)
+
+
+rbac:
+  content:
+    './apis/admin/*':
+        Owner: none
+        Member: none
+        anonymous: none
+        authenticated: none

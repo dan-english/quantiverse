@@ -6,7 +6,6 @@
 
 - page: architecture.md  
 
-
 - group: API Guides
   items:
     - page: ./apis/product-2/PetStoreGuide.md
@@ -33,6 +32,10 @@
     - separatorLine: true
     - page: ./apis/kitchen/kitchen.yaml
 
+- group: Admin APIs
+  items:
+    - separatorLine: true
+    - page: ./apis/admin/admin.yaml
 
 #  This was interesting when no group name is specified the label attribute gets used.
 - group:
