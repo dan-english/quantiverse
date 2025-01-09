@@ -38,12 +38,12 @@ navbar:
     # - page: ./apis/museum/*
     - directory: ./apis/museum/@3
 
-    - page: ./apis/product-2/petstore.yaml
+    - page: ./products/api-hub/petstore/petstore.yaml
       label: 'Pet Store APIs'
-    - page: ./apis/product-3/train-travel.yaml
+    - page: ./products/api-hub/train/train-travel.yaml
       label: 'Train APIs'    
-    - page: ./apis/admin/admin.yaml
-      label: 'Admin API'   
+    # - page: ./products/api-hub/admin/admin.yaml
+    #   label: 'Admin API'   
 
 
 
@@ -57,7 +57,7 @@ catalog:
     slug: /catalog/
 
     items:
-      - directory: ./apis/
+      - directory: ./products/api-hub/
         flatten: true
         includeByMetadata:
           type: [openapi]
@@ -81,10 +81,19 @@ l10n:
       name: Spanish (Spain)
 
 
-rbac:
-  content:
-    './apis/admin/*':
-        Owner: none
-        Member: none
-        anonymous: none
-        authenticated: none
+# rbac:
+#   content:
+#     './products/api-hub/admin/*':
+#         Owner: none
+#         Member: none
+#         anonymous: none
+#         authenticated: none
+
+
+products:
+  apihub:
+    name: API Hub
+    folder: ./products/api-hub
+  museum:
+    name: Museum
+    folder: ./products/museum

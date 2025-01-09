@@ -1,0 +1,4 @@
+navbar: 
+  items:
+    - page: about.md
+      label: 'About Museum API   
