@@ -1,0 +1,8 @@
+default: 2.0
+versions:
+  - version: 1.0
+    name: Version 1
+  - version: 2.0
+    name: Version 2
+  - version: 3
+    name: Latest & Greatest

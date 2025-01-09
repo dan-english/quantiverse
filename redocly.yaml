@@ -35,14 +35,17 @@ logo:
 navbar: 
   items:
     - page: /catalog/
-    - page: ./apis/product-1/museum.yaml
-      label: 'Museum APIs'  
+    # - page: ./apis/museum/*
+    - directory: ./apis/museum/@3
+
     - page: ./apis/product-2/petstore.yaml
       label: 'Pet Store APIs'
     - page: ./apis/product-3/train-travel.yaml
       label: 'Train APIs'    
     - page: ./apis/admin/admin.yaml
       label: 'Admin API'   
+
+
 
 # https://redocly.com/docs/realm/config/catalog
 # https://redocly.com/docs/realm/author/how-to/add-catalog
