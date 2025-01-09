@@ -9,7 +9,7 @@
 - group: API Guides
   items:
     - page: ./apis/product-2/PetStoreGuide.md
-    - page: ./apis/product-1/MuseumGuide.md
+    - page: ./apis/museum/@1.0/MuseumGuide.md
     - page: ./apis/product-3/TrainTravelGuide.md
     - page: ./remote/guide/d-kitchen/kitchen-guide.md
 
@@ -37,10 +37,22 @@
     - separatorLine: true
     - page: ./apis/admin/admin.yaml
 
-#  This was interesting when no group name is specified the label attribute gets used.
-- group:
-  page: ./apis/product-1/MuseumGuide.md
-  label: Museum API & Guide
-  items:
-    - separatorLine: true
-    - page: ./apis/product-1/museum.yaml
+- group: Museum Stuff
+  items:  
+    - directory: ./apis/museum/@1.0
+    - directory: ./apis/museum/@2.0
+    - directory: ./apis/museum/@3
+
+# - $ref: /apis/museum/sidebars.yaml
+
+
+
+# #  This was interesting when no group name is specified the label attribute gets used.
+# - group:
+#   # page: ./apis/museum/@1.0/MuseumGuide.md
+#     label: Museum API & Guide
+#   - directory: /apis/museum
+
+#   # items:
+#   #   - separatorLine: true
+#   #   - page: ./apis/museum/@1.0/museum.yaml
