@@ -8,40 +8,36 @@
 
 - group: API Guides
   items:
-    - page: ./apis/product-2/PetStoreGuide.md
-    - page: ./apis/museum/@1.0/MuseumGuide.md
-    - page: ./apis/product-3/TrainTravelGuide.md
+    - page: ./products/api-hub/petstore/PetStoreGuide.md
+    - page: ./products/museum/@3/MuseumGuide.md
+    - page: ./products/api-hub/train/TrainTravelGuide.md
     - page: ./remote/guide/d-kitchen/kitchen-guide.md
 
 - group: Pet Store APIs
-  page: ./apis/product-2/PetStoreGuide.md
+  page: ./products/api-hub/petstore/PetStoreGuide.md
   items:
     - separatorLine: true
-    - page: ./apis/product-2/petstore.yaml
+    - page: ./products/api-hub/petstore/petstore.yaml
 
 - group: Train Travel APIs
-  page: ./apis/product-3/TrainTravelGuide.md
+  page: ./products/api-hub/train/TrainTravelGuide.md
   items:
     - separatorLine: true
-    - page: ./apis/product-3/train-travel.yaml
+    - page: ./products/api-hub/train/train-travel.yaml
 
 - group: Kitchen APIs
-  page: ./remote/guide/d-kitchen/kitchen-guide.md
-  label: Kitchen API & Into
-  items:
-    - separatorLine: true
-    - page: ./apis/kitchen/kitchen.yaml
+  page: ./products/api-hub/kitchen/kitchen.yaml
 
 - group: Admin APIs
   items:
     - separatorLine: true
-    - page: ./apis/admin/admin.yaml
+    - page: ./products/api-hub/admin/admin.yaml
 
-- group: Museum Stuff
-  items:  
-    - directory: ./apis/museum/@1.0
-    - directory: ./apis/museum/@2.0
-    - directory: ./apis/museum/@3
+# - group: Museum Stuff
+#   items:  
+#     - directory: ./products/museum/@1.0
+#     - directory: ./products/museum/@2.0
+#     - directory: ./products/museum/@3
 
 # - $ref: /apis/museum/sidebars.yaml
 
