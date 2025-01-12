@@ -33,11 +33,11 @@
     - separatorLine: true
     - page: ./products/api-hub/admin/admin.yaml
 
-- group: Museum Stuff
-  items:  
-    - directory: ./products/museum/@1.0
-    - directory: ./products/museum/@2.0
-    - directory: ./products/museum/@3
+# - group: Museum Stuff
+#   items:  
+#     - directory: ./products/museum/@1.0
+#     - directory: ./products/museum/@2.0
+#     - directory: ./products/museum/@3
 
 # - $ref: /apis/museum/sidebars.yaml
 
