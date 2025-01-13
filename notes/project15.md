@@ -6,9 +6,11 @@ After adding a
 Deleting a remote directory
 - broke the connection to the remote repo
 - did not delete the sync'd directory
-- did not update the branch or PR that had been auto-generated (I did not create this :/ )
+
   
 
 
+Branch protection on remote repository 
 
-  Is there a way to 
+a PR into main on remote repository should start redocly tests
+ 
