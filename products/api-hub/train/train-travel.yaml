@@ -824,6 +824,7 @@ components:
                 object:
                   type: string
                   const: card
+                  example: 'card'
                 name:
                   type: string
                   description: Cardholder's full name as it appears on the card.
@@ -885,6 +886,7 @@ components:
                 object:
                   const: bank_account
                   type: string
+                  example: 'bank_account'
                 name:
                   type: string
                   example: 'Starling Bank'

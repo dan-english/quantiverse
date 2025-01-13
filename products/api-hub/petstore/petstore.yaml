@@ -32,6 +32,7 @@ tags:
       url: 'http://swagger.io'
   - name: user
     description: Operations about user
+    
 paths:
   /pet:
     post:
@@ -339,6 +340,9 @@ paths:
         - api_key: []
   /store/order:
     post:
+      security:
+        - petstore_auth:
+            - 'write:orders'
       tags:
         - store
       summary: Place an order for a pet
@@ -367,6 +371,9 @@ paths:
               $ref: '#/components/schemas/Order'
   '/store/order/{orderId}':
     get:
+      security:
+        - petstore_auth:
+          - 'read:orders'
       tags:
         - store
       summary: Find purchase order by ID
@@ -674,7 +681,7 @@ components:
           example: CA
         zip:
           type: string
-          example: 94301
+          example: '94301'
       xml:
         name: address
       type: object
@@ -712,10 +719,10 @@ components:
           example: john@email.com
         password:
           type: string
-          example: 12345
+          example: '12345'
         phone:
           type: string
-          example: 12345
+          example: '12345'
         userStatus:
           type: integer
           format: int32
@@ -821,6 +828,9 @@ components:
           scopes:
             'write:pets': modify pets in your account
             'read:pets': read your pets
+            'read:orders': read orders on your account
+            'write:orders': write orders to account
+
     api_key:
       type: apiKey
       name: api_key
