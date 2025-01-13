@@ -112,7 +112,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by status
+      summary: Finds pets by status
       description: Multiple status values can be provided with comma separated strings
       operationId: findPetsByStatus
       parameters:
@@ -152,7 +152,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by tags
+      summary: Finds pets by tags
       description: >-
         Multiple tags can be provided with comma separated strings. Use tag1,
         tag2, tag3 for testing.
@@ -283,7 +283,7 @@ paths:
     post:
       tags:
         - pet
-      summary: uploads an image
+      summary: Uploads an image
       description: ''
       operationId: uploadFile
       parameters:
@@ -627,6 +627,7 @@ components:
         shipDate:
           type: string
           format: date-time
+          example: '2024-12-10 0800'
         status:
           type: string
           description: Order Status
@@ -637,6 +638,7 @@ components:
           example: approved
         complete:
           type: boolean
+          example: true
       xml:
         name: order
       type: object
@@ -728,8 +730,10 @@ components:
         id:
           type: integer
           format: int64
+          example: 1234
         name:
           type: string
+          example: 'tag-name'
       xml:
         name: tag
       type: object
@@ -771,6 +775,7 @@ components:
             - available
             - pending
             - sold
+          example: 'pending'
       xml:
         name: pet
       type: object
@@ -779,10 +784,13 @@ components:
         code:
           type: integer
           format: int32
+          example: 123
         type:
           type: string
+          example: 'response-type'
         message:
           type: string
+          example: 'generated message'
       xml:
         name: '##default'
       type: object

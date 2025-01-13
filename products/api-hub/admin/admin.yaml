@@ -21,10 +21,13 @@ paths:
                   properties:
                     id:
                       type: integer
+                      example: 123
                     username:
                       type: string
+                      example: 'dan.english'
                     email:
                       type: string
+                      example: 'dan.english@redocly.com'
 
   /admin/users/{userId}:
     get:
@@ -47,10 +50,13 @@ paths:
                 properties:
                   id:
                     type: integer
+                    example: 123
                   username:
                     type: string
+                    example: 'dan.english'
                   email:
                     type: string
+                    example: 'dan.english@redocly.com'
 
     delete:
       summary: Delete user by ID
@@ -87,6 +93,7 @@ paths:
                 newPassword:
                   type: string
                   description: New password for the user
+                  example: 'p@ssw0rd'
       responses:
         '200':
           description: Password reset successful

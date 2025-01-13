@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: API for managing ingredients in a kitchen.
 servers:
-  - url: https://api.example.com
+  - url: https://api.dev-site.io
     description: Production server
 paths:
   /ingredients:
