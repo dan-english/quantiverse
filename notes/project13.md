@@ -1,4 +1,4 @@
-# Project 13 - Get started again
+# Project Thirteen - Get started again
 
 Documentation was great, very easy to get up and running quickly locally.
 

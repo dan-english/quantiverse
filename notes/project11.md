@@ -1,3 +1,3 @@
-# Project 11: RBAC - Role-Based Access Control
+# Project Eleven: RBAC - Role-Based Access Control
 
 Not sure why there is an option for the admin api still in the sidebar...
