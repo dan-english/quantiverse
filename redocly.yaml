@@ -35,9 +35,6 @@ logo:
 navbar: 
   items:
     - page: /catalog/
-    # - page: ./apis/museum/*
-    - directory: ./apis/museum/@3
-
     - page: ./products/api-hub/petstore/petstore.yaml
       label: 'Pet Store APIs'
     - page: ./products/api-hub/train/train-travel.yaml
@@ -81,13 +78,13 @@ l10n:
       name: Spanish (Spain)
 
 
-# rbac:
-#   content:
-#     './products/api-hub/admin/*':
-#         Owner: none
-#         Member: none
-#         anonymous: none
-#         authenticated: none
+rbac:
+  content:
+    './products/api-hub/admin/*':
+        Owner: none
+        Member: none
+        anonymous: none
+        authenticated: none
 
 
 products:
