@@ -1,4 +1,4 @@
 navbar: 
   items:
-    - page: about.md
-      label: 'About Museum API'
+    - page: ../api-hub/petstore/petstore.yaml
+      label: 'Pet Store APIs'

@@ -7,6 +7,6 @@
   "private": true,
   "description": "Demo of a template with instructions",
   "dependencies": {
-    "@redocly/realm": "^0.98.1"
+    "@redocly/realm": "0.115.0"
   }
 }
