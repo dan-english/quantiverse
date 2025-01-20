@@ -512,7 +512,7 @@ paths:
                         $ref: '#/components/schemas/Links-Booking'
               examples:
                 Card:
-                  summary: Card Payment
+                  summary: Card payment
                   value:
                     id: 2e3b4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
                     amount: 49.99
@@ -530,7 +530,7 @@ paths:
                     links:
                       booking: https://api.example.com/bookings/1725ff48-ab45-4bb5-9d02-88745177dedb/payment
                 Bank:
-                  summary: Bank Account Payment
+                  summary: Bank account payment
                   value:
                     id: 2e3b4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
                     amount: 100.5
@@ -794,6 +794,7 @@ components:
           type: string
           format: uuid
           readOnly: true
+          example: '2332423423432'
         amount:
           description: Amount intended to be collected by this payment. A positive decimal figure describing the amount to be collected.
           type: number
@@ -885,6 +886,7 @@ components:
                 object:
                   const: bank_account
                   type: string
+                  example: 'bank_account'
                 name:
                   type: string
                   example: "Big Main Street Bank"
