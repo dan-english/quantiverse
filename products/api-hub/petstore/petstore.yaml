@@ -771,6 +771,7 @@ components:
             - available
             - pending
             - sold
+          example: 'available'
       xml:
         name: pet
       type: object
@@ -779,31 +780,17 @@ components:
         code:
           type: integer
           format: int32
+          example: 1
         type:
           type: string
+          example: 'repsone'
         message:
           type: string
+          example: 'message'
       xml:
         name: '##default'
       type: object
-  requestBodies:
-    Pet:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Pet'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Pet'
-      description: Pet object that needs to be added to the store
-    UserArray:
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
-      description: List of user object
+
   securitySchemes:
     petstore_auth:
       type: oauth2
