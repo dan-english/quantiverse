@@ -256,9 +256,10 @@ components:
       properties: 
         name:
           type: string
+          example: 'Bronto'
         age:
           type: string
-
+          example: '1000k years'
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
       type: string
@@ -691,15 +692,6 @@ components:
         type: string
         format: date
         example: '2023-04-18'
-    TicketId:
-      name: ticketId
-      in: path
-      description: Identifier for a ticket to a museum event. Used to generate ticket image.
-      required: true
-      schema:
-        type: string
-        format: uuid
-        example: a54a57ca-36f8-421b-a6b4-2e8f26858a4c
   responses:
     BadRequest:
       description: Bad request.

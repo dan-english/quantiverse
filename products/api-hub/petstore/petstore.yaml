@@ -32,6 +32,7 @@ tags:
       url: 'http://swagger.io'
   - name: user
     description: Operations about user
+    
 paths:
   /pet:
     post:
@@ -112,7 +113,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by status
+      summary: Finds pets by status
       description: Multiple status values can be provided with comma separated strings
       operationId: findPetsByStatus
       parameters:
@@ -152,7 +153,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by tags
+      summary: Finds pets by tags
       description: >-
         Multiple tags can be provided with comma separated strings. Use tag1,
         tag2, tag3 for testing.
@@ -283,7 +284,7 @@ paths:
     post:
       tags:
         - pet
-      summary: uploads an image
+      summary: Uploads an image
       description: ''
       operationId: uploadFile
       parameters:
@@ -339,6 +340,9 @@ paths:
         - api_key: []
   /store/order:
     post:
+      security:
+        - petstore_auth:
+            - 'write:orders'
       tags:
         - store
       summary: Place an order for a pet
@@ -367,6 +371,9 @@ paths:
               $ref: '#/components/schemas/Order'
   '/store/order/{orderId}':
     get:
+      security:
+        - petstore_auth:
+          - 'read:orders'
       tags:
         - store
       summary: Find purchase order by ID
@@ -627,6 +634,7 @@ components:
         shipDate:
           type: string
           format: date-time
+          example: '2024-12-10 0800'
         status:
           type: string
           description: Order Status
@@ -637,6 +645,7 @@ components:
           example: approved
         complete:
           type: boolean
+          example: true
       xml:
         name: order
       type: object
@@ -672,7 +681,7 @@ components:
           example: CA
         zip:
           type: string
-          example: 94301
+          example: '94301'
       xml:
         name: address
       type: object
@@ -710,10 +719,10 @@ components:
           example: john@email.com
         password:
           type: string
-          example: 12345
+          example: '12345'
         phone:
           type: string
-          example: 12345
+          example: '12345'
         userStatus:
           type: integer
           format: int32
@@ -728,8 +737,10 @@ components:
         id:
           type: integer
           format: int64
+          example: 1234
         name:
           type: string
+          example: 'tag-name'
       xml:
         name: tag
       type: object
@@ -771,6 +782,7 @@ components:
             - available
             - pending
             - sold
+          example: 'pending'
       xml:
         name: pet
       type: object
@@ -779,10 +791,13 @@ components:
         code:
           type: integer
           format: int32
+          example: 123
         type:
           type: string
+          example: 'response-type'
         message:
           type: string
+          example: 'generated message'
       xml:
         name: '##default'
       type: object
@@ -813,6 +828,9 @@ components:
           scopes:
             'write:pets': modify pets in your account
             'read:pets': read your pets
+            'read:orders': read orders on your account
+            'write:orders': write orders to account
+
     api_key:
       type: apiKey
       name: api_key
