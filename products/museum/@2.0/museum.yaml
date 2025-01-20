@@ -256,8 +256,10 @@ components:
       properties: 
         name:
           type: string
+          example: 'bronto'
         age:
           type: string
+          example:'10000 years'
 
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
@@ -288,11 +290,6 @@ components:
       description: Confirmation message after a ticket purchase.
       type: string
       example: Museum general entry ticket purchased
-    TicketId:
-      description: Unique identifier for museum ticket. Generated when purchased.
-      type: string
-      format: uuid
-      example: a54a57ca-36f8-421b-a6b4-2e8f26858a4c
     TicketConfirmation:
       description: Unique confirmation code used to verify ticket purchase.
       type: string
@@ -301,8 +298,6 @@ components:
       description: Ticket for museum entry, can be general admission or special event.
       type: object
       properties:
-        ticketId:
-          $ref: "#/components/schemas/TicketId"
         ticketDate:
           description: Date when this ticket can be used for museum entry.
           $ref: "#/components/schemas/Date"
