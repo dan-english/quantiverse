@@ -112,7 +112,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by status
+      summary: Finds pets by status
       description: Multiple status values can be provided with comma separated strings
       operationId: findPetsByStatus
       parameters:
@@ -152,7 +152,7 @@ paths:
     get:
       tags:
         - pet
-      summary: Finds Pets by tags
+      summary: Finds pets by tags
       description: >-
         Multiple tags can be provided with comma separated strings. Use tag1,
         tag2, tag3 for testing.
@@ -283,7 +283,7 @@ paths:
     post:
       tags:
         - pet
-      summary: uploads an image
+      summary: Uloads an image
       description: ''
       operationId: uploadFile
       parameters:
@@ -627,6 +627,7 @@ components:
         shipDate:
           type: string
           format: date-time
+          example: '2024-12-10T10:00:00'
         status:
           type: string
           description: Order Status
@@ -637,44 +638,9 @@ components:
           example: approved
         complete:
           type: boolean
+          example: True
       xml:
         name: order
-      type: object
-    Customer:
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 100000
-        username:
-          type: string
-          example: fehguy
-        address:
-          type: array
-          items:
-            $ref: '#/components/schemas/Address'
-          xml:
-            wrapped: true
-            name: addresses
-      xml:
-        name: customer
-      type: object
-    Address:
-      properties:
-        street:
-          type: string
-          example: 437 Lytton
-        city:
-          type: string
-          example: Palo Alto
-        state:
-          type: string
-          example: CA
-        zip:
-          type: string
-          example: 94301
-      xml:
-        name: address
       type: object
     Category:
       x-swagger-router-model: io.swagger.petstore.model.Category
