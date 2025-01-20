@@ -1,6 +1,9 @@
 - page: about.md
   label: About The Museum API Origins
 
+- page: step-by-step-guide.md
+  label: Step By Step Guide
+
 
 - group: The Great Museum API 
   items:  
