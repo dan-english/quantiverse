@@ -16,7 +16,7 @@ info:
     identifier: CC-BY-NC-SA-4.0
 
 servers:
-  - url: https://api.example.com
+  - url: https://tain.dev-site.io
     description: Production
 
 security:
@@ -455,7 +455,7 @@ paths:
           format: uuid
         example: 1725ff48-ab45-4bb5-9d02-88745177dedb
     post:
-      summary: Pay for a Booking
+      summary: Pay for a booking
       description: A payment is an attempt to pay for the booking, which will confirm the booking for the user and enable them to get their tickets.
       operationId: create-booking-payment
       tags:
@@ -467,7 +467,7 @@ paths:
               $ref: '#/components/schemas/BookingPayment'
             examples:
               Card:
-                summary: Card Payment
+                summary: Card payment
                 value:
                   amount: 49.99
                   currency: gbp
@@ -484,7 +484,7 @@ paths:
                     address_country: gb
                     address_post_code: N12 9XX
               Bank:
-                summary: Bank Account Payment
+                summary: Bank account payment
                 value:
                   amount: 100.5
                   currency: gbp
@@ -560,7 +560,7 @@ webhooks:
   newBooking:
     post:
       operationId: new-booking
-      summary: New Booking
+      summary: New booking
       description: |
         Subscribe to new bookings being created, to update integrations for your users.  Related data is available via the links provided in the request.
       tags:
@@ -649,15 +649,18 @@ components:
         self:
           type: string
           format: uri
+          example: 'http://someurl.com'
     Links-Pagination:
       type: object
       properties:
         next:
           type: string
           format: uri
+          example: 'next=10'
         prev:
           type: string
           format: uri
+          example: 'prev=10'
     Problem:
       xml:
         name: problem
@@ -732,9 +735,11 @@ components:
         bicycles_allowed:
           type: boolean
           description: Indicates whether bicycles are allowed on the trip
+          example: True
         dogs_allowed:
           type: boolean
           description: Indicates whether dogs are allowed on the trip
+          example: True
     Booking:
       type: object
       xml:
@@ -761,9 +766,11 @@ components:
         has_bicycle:
           type: boolean
           description: Indicates whether the passenger has a bicycle.
+          example: True
         has_dog:
           type: boolean
           description: Indicates whether the passenger has a dog.
+          example: True
     Wrapper-Collection:
       description: This is a generic request/response wrapper which contains both data and links which serve as hypermedia controls (HATEOAS).
       type: object
@@ -796,6 +803,7 @@ components:
         currency:
           description: Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
           type: string
+          example: "bam"
           enum:
             - bam
             - bgn
@@ -815,6 +823,7 @@ components:
                 object:
                   type: string
                   const: card
+                  example: 'card'
                 name:
                   type: string
                   description: Cardholder's full name as it appears on the card.
@@ -848,15 +857,20 @@ components:
                 address_line1:
                   type: string
                   writeOnly: true
+                  example: "Flat 217, Hartingtons Court"
                 address_line2:
                   type: string
                   writeOnly: true
+                  example: "Coster Avenue"
                 address_city:
                   type: string
+                  example: "London"
                 address_country:
                   type: string
+                  example: "United Kingdom"
                 address_post_code:
                   type: string
+                  example: "N42WQ"
               required:
                 - name
                 - number
@@ -873,17 +887,21 @@ components:
                   type: string
                 name:
                   type: string
+                  example: "Big Main Street Bank"
                 number:
                   type: string
                   description: The account number for the bank account, in string form. Must be a current account.
+                  example: '0000-0000-0000'
                 sort_code:
                   type: string
                   description: The sort code for the bank account, in string form. Must be a six-digit number.
+                  example: '000-000'
                 account_type:
                   enum:
                     - individual
                     - company
                   type: string
+                  example: 'individual'
                   description: The type of entity that holds the account. This can be either `individual` or `company`.
                 bank_name:
                   type: string
@@ -893,6 +911,7 @@ components:
                 country:
                   type: string
                   description: Two-letter country code (ISO 3166-1 alpha-2).
+                  example: "United Kingdom"
               required:
                 - name
                 - number
@@ -907,6 +926,7 @@ components:
             - succeeded
             - failed
           readOnly: true
+          example: 'pending'
     Links-Booking:
       type: object
       properties:
