@@ -259,7 +259,7 @@ components:
           example: 'bronto'
         age:
           type: string
-          example:'10000 years'
+          example: '10000 years'
 
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
