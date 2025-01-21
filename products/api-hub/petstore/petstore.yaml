@@ -246,6 +246,8 @@ paths:
           schema:
             type: string
       responses:
+        '200':
+          description: Update pet!
         '405':
           description: Invalid input
       security:
@@ -273,6 +275,8 @@ paths:
             type: integer
             format: int64
       responses:
+        '200':
+          description: Deleted Pet
         '400':
           description: Invalid pet value
       security:
@@ -341,6 +345,8 @@ paths:
     post:
       tags:
         - store
+      security:
+        - api_key: []
       summary: Place an order for a pet
       description: Place a new order in the store
       operationId: placeOrder
@@ -371,6 +377,8 @@ paths:
         - store
       summary: Find purchase order by ID
       x-swagger-router-controller: OrderController
+      security:
+        - api_key: []
       description: >-
         For valid response try integer IDs with value <= 5 or > 10. Other values
         will generate exceptions.
@@ -402,6 +410,8 @@ paths:
         - store
       summary: Delete purchase order by ID
       x-swagger-router-controller: OrderController
+      security:
+        - api_key: []
       description: >-
         For valid response try integer IDs with value < 1000. Anything above
         1000 or nonintegers will generate API errors
@@ -415,6 +425,8 @@ paths:
             type: integer
             format: int64
       responses:
+        '200':
+          description: Purchase order deleted
         '400':
           description: Invalid ID supplied
         '404':
@@ -426,6 +438,8 @@ paths:
       summary: Create user
       description: This can only be done by the logged in user.
       operationId: createUser
+      security:
+        - api_key: []
       responses:
         default:
           description: successful operation
@@ -456,6 +470,8 @@ paths:
       description: 'Creates list of users with given input array'
       x-swagger-router-controller: UserController
       operationId: createUsersWithListInput
+      security:
+        - api_key: []
       responses:
         '200':
           description: Successful operation
@@ -482,6 +498,8 @@ paths:
       summary: Logs user into the system
       description: ''
       operationId: loginUser
+      security:
+        - api_key: []
       parameters:
         - name: username
           in: query
@@ -536,6 +554,8 @@ paths:
       summary: Get user by user name
       description: ''
       operationId: getUserByName
+      security:
+        - api_key: []
       parameters:
         - name: username
           in: path
@@ -678,10 +698,10 @@ components:
           example: john@email.com
         password:
           type: string
-          example: 12345
+          example: '12345'
         phone:
           type: string
-          example: 12345
+          example: '12345'
         userStatus:
           type: integer
           format: int32
@@ -696,8 +716,10 @@ components:
         id:
           type: integer
           format: int64
+          example: 16
         name:
           type: string
+          example: 'petname'
       xml:
         name: tag
       type: object
