@@ -275,8 +275,10 @@ components:
       properties: 
         name:
           type: string
+          example: 'danny'
         age:
           type: string
+          example: '43'
 
     TicketType:
       description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
