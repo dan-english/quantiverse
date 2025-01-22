@@ -8,4 +8,14 @@ export const tags: Record<string, Schema> = {
     render: 'Break',
     selfClosing: true,
   },
+   quiz: {
+    attributes: {
+      questions: {
+        type: 'Object',
+        required: true,
+      },
+    },
+    render: 'Quiz', // please make sure to export it in components.ts,
+    selfClosing: true,
+  },
 }

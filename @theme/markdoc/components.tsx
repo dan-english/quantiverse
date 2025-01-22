@@ -1,6 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+export { Quiz } from './components/Quiz';
+
+
 export function Split({ children }: { children: React.ReactNode[] }) {
   const childs = React.Children.toArray(children);
   const hrIndex = childs.findIndex(child => React.isValidElement(child) && child.type === 'hr');

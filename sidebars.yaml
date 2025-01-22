@@ -6,6 +6,9 @@
 
 - page: architecture.md  
 
+- page: quiz.md
+  label: Quiz
+
 - group: API Guides
   items:
     - page: ./products/api-hub/petstore/PetStoreGuide.md
