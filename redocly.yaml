@@ -43,6 +43,8 @@ navbar:
     #   label: 'Admin API'   
 
 
+feedback:
+  type: rating
 
 # https://redocly.com/docs/realm/config/catalog
 # https://redocly.com/docs/realm/author/how-to/add-catalog
