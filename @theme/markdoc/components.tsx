@@ -16,6 +16,11 @@ export function Split({ children }: { children: React.ReactNode[] }) {
   );
 }
 
+
+export function Break() {
+  return <br />;
+}
+
 const SplitWrapper = styled.div`
   display: flex;
   flex-direction: row;
