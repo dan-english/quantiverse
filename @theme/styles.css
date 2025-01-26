@@ -9,10 +9,30 @@
 --h1-text-color:#0000dd;
 --h2-text-color:#00ff00;
 
-
-
 --feedback-hat-color: hsl(304, 89%, 59%);
+
 }
+
+/* .ftdpnl {
+  background-color: lightpink;
+  max-width:fit-content;
+}
+
+
+.gTRpEB {
+  background-color:lightgray;
+}
+
+.bXbsCF {
+  background-color:lightblue;
+  margin-bottom: auto; 
+
+}
+
+.dmBMvF {
+    height: 100vh;
+} */
+
 
 :root.dark {
     --h1-text-color:#ff0000;
