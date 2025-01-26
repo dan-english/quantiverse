@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Some website</title>
+    <!-- needed for adaptive design -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="application/javascript" src="http://ourcdn.com/code/widgets/cool-widget.js"  /> //[!code --]
+    <script type="application/javascript" src="http://ourcdn.com/code/widgets/great-widget.min.js"  /> //[!code ++]
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro:400:700"  rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-content">
+        <!--   Some content goes here     -->
+        
+        <b>Buttons section 1</b>    
+        <button id="toggle-info-section" checkStat="true">Toggle Info Section</button> // [!code highlight]
+        <button id="toggle-info-section">Toggle Info Section</button>  //[!code --] 
+
+        <button id="toggle-download-buttons">Toggle Download Buttons</button>
+        <button id="toggle-hide-info-section">Toggle Hide Info Section</button>
+            
+        <b>Buttons section 2</b>
+        <button id="toggle-hide-download-buttons">Toggle Hide Download Buttons</button>
+        <button id="toggle-hide-info-section-and-download-buttons">Toggle Hide Info Section and Download Buttons</button>
+            
+    </div>
+    <footer widget-container="true"> //[!code ++] 
+        <p>Some footer content</p>
+    </footer>
+
+
+
+<script type="text/javascript">  //[!code ++] 
+  try {  //[!code ++] 
+    GreatWidget.settings({ //[!code ++] 
+      "weather": { //[!code ++] 
+        "city": "Horishni Plavni", //[!code ++] 
+        "value": "celsius" //[!code ++] 
+      }, //[!code ++] 
+      "clicks": "on" //[!code ++] 
+      "maya": true, //[!code ++] 
+    }) //[!code ++] 
+  } catch (e) { //[!code ++] 
+    // handle errors here //[!code ++] 
+    console.error("Great widget not found!"); //[!code ++] 
+  } //[!code ++] 
+  </script> //[!code ++] 
+
+
+  </body>
+</html>

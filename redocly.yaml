@@ -3,6 +3,10 @@ apis:
     root: ./index.md
 extends:
   - minimal
+
+openapi:
+  layout: 'three-panel'
+  
 rules:
   operation-tag-defined: error
   no-invalid-schema-examples: error

@@ -9,6 +9,9 @@
 - page: quiz.md
   label: Quiz
 
+- page: widget.md
+  label: Widget Update
+  
 - group: API Guides
   items:
     - page: ./products/api-hub/petstore/PetStoreGuide.md
