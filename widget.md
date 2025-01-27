@@ -29,7 +29,13 @@ To enable these options customer should insert additional code into the page. Pa
 
 
 
-1. The file name is now `great-widget.min.js`
+   
+1.  
+{% code-snippet
+  file="./code-examples/widget-index-header.html"
+  language="php"
+  title="Widget Home Page Header"
+/%} 
 {% br / %}
 
 2. {% code-snippet

@@ -6,7 +6,11 @@ extends:
 
 openapi:
   layout: 'three-panel'
-  
+  # downloadUrls:
+  #     - title: Download OpenApiDescription
+  #       url: 'https://museum.dev-site.io'
+  showExtensions: true
+
 rules:
   operation-tag-defined: error
   no-invalid-schema-examples: error
@@ -92,6 +96,8 @@ rbac:
         anonymous: none
         authenticated: none
 
+    # './products/museum/@1.0/*':
+    #     authenticated: read
 
 products:
   apihub:
