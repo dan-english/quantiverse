@@ -1,4 +1,5 @@
 openapi: 3.1.0
+
 info:
   title: Version 2 of the Redocly Museum API
   description: Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly.
@@ -12,6 +13,8 @@ info:
     url: "https://opensource.org/license/mit/"
   x-metadata:  
     category: Museum
+
+  
 servers:
   - url: "https://redocly.com/_mock/docs/openapi/museum-api"
 paths:
@@ -47,6 +50,8 @@ paths:
       summary: Get museum hours
       description: Get upcoming museum operating hours.
       operationId: getMuseumHours
+      x-rbac:
+          authenticated: read
       tags:
         - Operations
       parameters:
@@ -193,6 +198,8 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         "404":
           $ref: '#/components/responses/NotFound'
+      security:
+        - MuseumLoginAuth: []
   /tickets:
     post:
       summary: Buy museum tickets
@@ -429,6 +436,12 @@ components:
     MuseumPlaceholderAuth:
       type: http
       scheme: basic
+      
+    MuseumLoginAuth:
+      type: apiKey
+      in: cookie
+      name: JESSEIONID
+    
   examples:
     GetDinoDetailsResponseExample:
       summary: Dino details response
@@ -721,5 +734,7 @@ tags:
     description: Special events hosted by the museum.
   - name: Tickets
     description: Museum tickets for general entrance or special events.
+
 security:
   - MuseumPlaceholderAuth: []
+

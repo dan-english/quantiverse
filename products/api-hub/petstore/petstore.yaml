@@ -12,7 +12,7 @@ info:
     - [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
     - [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
   version: 1.0.20-SNAPSHOT
-  title: Swagger Petstore - OpenAPI 3.0
+  title: Petstore
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: apiteam@swagger.io
@@ -69,6 +69,10 @@ paths:
           application/x-www-form-urlencoded:
             schema:
               $ref: '#/components/schemas/Pet'
+   
+   
+   
+   
     put:
       tags:
         - pet
@@ -328,6 +332,9 @@ paths:
       summary: Returns pet inventories by status
       description: Returns a map of status codes to quantities
       operationId: getInventory
+      x-rbac:
+        authenticated: read
+        anonymous: none
       x-swagger-router-controller: OrderController
       responses:
         '200':
