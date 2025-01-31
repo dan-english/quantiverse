@@ -9,16 +9,14 @@
 --h1-text-color:#0000dd;
 --h2-text-color:#00ff00;
 
---feedback-hat-color: hsl(304, 89%, 59%);
+/* }
 
-}
-
-/* .ftdpnl {
+.ftdpnl {
   background-color: lightpink;
   max-width:fit-content;
-}
+} */
 
-
+/* 
 .gTRpEB {
   background-color:lightgray;
 }
@@ -44,3 +42,7 @@
     border:2px solid #00ff00;
 }
 
+.yellow {
+  background-color: yellow;
+  color: #fff;
+}
