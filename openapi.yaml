@@ -1,76 +1,49 @@
 openapi: 3.1.0
 info:
-  title: Tenant Status API
-  description: API to manage and check the status of tenants.
+  title: Currency Exchange API
+  description: Provides currency exchange rates
   version: 1.0.0
 servers:
-  - url: https://proud-donkey-88.deno.dev
-    description: Production server
+  - url: https://phronesis-currency-api.deno.dev
+    description: Main server
 paths:
-  /status/{tenantId}:
+  /exchange-rates:
     get:
-      summary: Get the status of a tenant
+      operationId: getExchangeRates
+      summary: Retrieve exchange rates
+      description: Get current currency exchange rates.
       parameters:
-        - name: tenantId
-          in: path
+        - name: ApiKey
+          in: header
           required: true
-          description: The ID of the tenant
+          description: API key for authorization
           schema:
             type: string
       responses:
         '200':
-          description: Tenant is healthy
+          description: A JSON object containing exchange rates
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  status:
+                  usdToEur:
                     type: string
-                    example: healthy
+                    example: '0.85'
+                  eurToUsd:
+                    type: string
+                    example: '1.18'
+        '401':
+          description: Unauthorized request due to invalid API key
+        '404':
+          description: Not Found if the path is incorrect
         '500':
-          description: Tenant is unhealthy
-  /status/{tenantId}/unhealthy:
-    get:
-      summary: Set the status of a tenant to unhealthy
-      parameters:
-        - name: tenantId
-          in: path
-          required: true
-          description: The ID of the tenant
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Status set to unhealthy
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: Status set to unhealthy
-  /status/{tenantId}/healthy:
-    get:
-      summary: Set the status of a tenant to healthy
-      parameters:
-        - name: tenantId
-          in: path
-          required: true
-          description: The ID of the tenant
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Status set to healthy
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: Status set to healthy
+          description: Internal Server Error
 components:
-  schemas:
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: healthy
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: ApiKey
+security:
+  - ApiKeyAuth: []
