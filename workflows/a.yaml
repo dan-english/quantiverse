@@ -1,4 +1,4 @@
-arazzo: 1.0.1
+arazzo: 1.0.0
 info:
   title: Currency check workflow
   summary: Check the current currency rates via an API call
@@ -18,15 +18,13 @@ workflows:
   steps:
   - stepId: getCurrencies
     description: get the values
-    operationPath: '{$sourceDescriptions.currencyDescription.url}#/paths/exchange-rates/get'
+    operationId: getExchangeRates
 
     parameters:
         - name: ApiKey
           in: header
           value: phronesis-84714284-6396-4c21-8860-48e8184be6e3
-   
-    operationId: '{$currencyDescription.getExchangeRates.url}'
-      
+         
     successCriteria:
       - condition: $statusCode == 200
     outputs:
