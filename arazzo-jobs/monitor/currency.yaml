@@ -7,15 +7,13 @@ info:
   
 sourceDescriptions:
 - name: currencyDescription
-  url: ../openapi.yaml
+  url: ../../openapi.yaml
   type: openapi
 
 workflows:
 - workflowId: getLatestCurrency
   summary: Get the latest values
   description: Get the latest values
-  inputs: {}
-
   steps:
   - stepId: getCurrencies
     description: get the values
