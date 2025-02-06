@@ -1,69 +1,32 @@
-# arazzo: 1.0.0
-# info:
-#   title: Currency check workflow
-#   summary: Check the current currency rates via an API call
-#   description: Will hit an endpoint to determine the current rates for USD to EUR and EUR to USD
-#   version: 1.0.1
-  
-# sourceDescriptions:
-# - name: currencyDescription
-#   url: https://phronesis-currency-api.redocly.app/_spec/openapi.yaml
-#   type: openapi
-
-# workflows:
-# - workflowId: getLatestCurrency
-#   summary: Get the latest values
-#   description: Get the latest values
-#   inputs: {}
-
-#   steps:
-#   - stepId: getCurrencies
-#     description: get the values
-#     operationPath: '{$currencyDescription.getExchangeRates.url}'
-#     parameters:
-#         - name: ApiKey
-#           in: header
-#           value: phronesis-84714284-6396-4c21-8860-48e8184be6e3
-   
-#     successCriteria:
-#       - condition: $statusCode == 200
-#     outputs:
-#       # outputs from this step
-#       availablePets: $response.body
-
-
 arazzo: 1.0.0
 info:
-  title: Tenant Status API
-  version: 1.0.0
+  title: Currency check workflow
+  summary: Check the current currency rates via an API call
+  description: Will hit an endpoint to determine the current rates for USD to EUR and EUR to USD
+  version: 1.0.1
+  
 sourceDescriptions:
-  - name: mock-api
-    type: openapi
-    url: ../openapi.yaml
+- name: currencyDescription
+  url: ../openapi.yaml
+  type: openapi
+
 workflows:
-  - workflowId: get-status-{tenantId}-workflow
-    summary: Testing Deno API - Tenant Status API
-    description: This is description of Arazzo file that tests Deno API
+- workflowId: getLatestCurrency
+  summary: Get the latest values
+  description: Get the latest values
+  inputs: {}
+
+  steps:
+  - stepId: getCurrencies
+    description: get the values
+    operationPath: '{$currencyDescription.getExchangeRates.url}'
     parameters:
-      - in: path
-        name: tenantId
-        value: redocly-academy-demo-1
-      - in: header
-        name: x-auth
-        value: $inputs.API_KEY
-      - in: header
-        name: x-tracking_id
-        value: $inputs.TRACKING_ID
-    steps:
-      - stepId: get-status-{tenantId}-step
-        operationId: $sourceDescriptions.mock-api.get@/status/{tenantId}
-        successCriteria:
-          - condition: $statusCode == 200
-    inputs:
-      type: object
-      properties:        
-        API_KEY:
-          type: string
-          format: password
-        TRACKING_ID:
-          type: string
+        - name: ApiKey
+          in: header
+          value: phronesis-84714284-6396-4c21-8860-48e8184be6e3
+   
+    successCriteria:
+      - condition: $statusCode == 200
+    outputs:
+      # outputs from this step
+      availablePets: $response.body

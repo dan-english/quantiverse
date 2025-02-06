@@ -5,7 +5,7 @@ info:
 sourceDescriptions:
   - name: mock-api
     type: openapi
-    url: https://phronesis-currency-api.redocly.app/_spec/openapi.yaml
+    url: ../openapi.yaml
 workflows:
   - workflowId: get-status-{tenantId}-workflow
     summary: Testing Deno API - Tenant Status API

@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Tenant Status API
+  description: API to manage and check the status of tenants.
+  version: 1.0.0
+servers:
+  - url: https://proud-donkey-88.deno.dev
+    description: Production server
+paths:
+  /status/{tenantId}:
+    get:
+      summary: Get the status of a tenant
+      parameters:
+        - name: tenantId
+          in: path
+          required: true
+          description: The ID of the tenant
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tenant is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+        '500':
+          description: Tenant is unhealthy
+  /status/{tenantId}/unhealthy:
+    get:
+      summary: Set the status of a tenant to unhealthy
+      parameters:
+        - name: tenantId
+          in: path
+          required: true
+          description: The ID of the tenant
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Status set to unhealthy
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Status set to unhealthy
+  /status/{tenantId}/healthy:
+    get:
+      summary: Set the status of a tenant to healthy
+      parameters:
+        - name: tenantId
+          in: path
+          required: true
+          description: The ID of the tenant
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Status set to healthy
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Status set to healthy
+components:
+  schemas:
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: healthy
