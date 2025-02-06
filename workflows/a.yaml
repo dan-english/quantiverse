@@ -1,0 +1,35 @@
+arazzo: 1.0.0
+info:
+  title: Tenant Status API
+  version: 1.0.0
+sourceDescriptions:
+  - name: mock-api
+    type: openapi
+    url: https://phronesis-currency-api.redocly.app/_spec/openapi.yaml
+workflows:
+  - workflowId: get-status-{tenantId}-workflow
+    summary: Testing Deno API - Tenant Status API
+    description: This is description of Arazzo file that tests Deno API
+    parameters:
+      - in: path
+        name: tenantId
+        value: redocly-academy-demo-1
+      - in: header
+        name: x-auth
+        value: $inputs.API_KEY
+      - in: header
+        name: x-tracking_id
+        value: $inputs.TRACKING_ID
+    steps:
+      - stepId: get-status-{tenantId}-step
+        operationId: $sourceDescriptions.mock-api.get@/status/{tenantId}
+        successCriteria:
+          - condition: $statusCode == 200
+    inputs:
+      type: object
+      properties:        
+        API_KEY:
+          type: string
+          format: password
+        TRACKING_ID:
+          type: string

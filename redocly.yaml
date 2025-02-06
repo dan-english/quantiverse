@@ -4,6 +4,28 @@ apis:
 extends:
   - minimal
 
+
+reunite:
+  jobs:
+    - path: ./workflows/a.yaml
+      agent: spot
+      trigger:
+        event: schedule
+        interval: 1m
+      inputs:
+        API_KEY: 'asdf'
+        TRACKING_ID: '12345'
+
+# reunite:
+#   jobs:
+#     - path: './workflows/a.yaml'
+#       inputs:
+#         API_KEY: 'asfd'
+#       agent: spot
+#       trigger:
+#         event: schedule
+#         interval: 1m
+
 openapi:
   layout: 'three-panel'
   # downloadUrls:
@@ -106,3 +128,6 @@ products:
   museum:
     name: Museum
     folder: ./products/museum
+    icon: A
+
+    
