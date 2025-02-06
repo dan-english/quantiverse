@@ -118,6 +118,5 @@ products:
   museum:
     name: Museum
     folder: ./products/museum
-    icon: A
 
     
