@@ -30,3 +30,6 @@ workflows:
     outputs:
       # outputs from this step
       rates: $response.body
+
+  outputs:
+    rates: $steps.getCurrencies.outputs.rates
