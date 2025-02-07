@@ -13,4 +13,4 @@ jobs:
       statuses: write
     steps:
       - name: Checkout
-        run: python ./.github/workflows/todo_List.py
+        run: python ../.github/workflows/todo_List.py
