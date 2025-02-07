@@ -106,3 +106,14 @@ products:
   museum:
     name: Museum
     folder: ./products/museum
+reunite:
+  jobs:
+    - path: '/currency-conventer/monitoring.yaml'
+      agent: spot
+      trigger:
+        event: schedule
+        interval: 1m
+      inputs:
+        API_KEY: '{{ process.env.API_KEY }}'
+        reportType: summary
+        email: 'yuliia.kachmaryk@redocly.com'
