@@ -1,0 +1,6 @@
+name: Dynamic Sidebar Generation
+
+on:
+  push:
+    branches:
+      - '**'
