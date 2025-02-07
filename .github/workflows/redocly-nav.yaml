@@ -13,4 +13,4 @@ jobs:
       statuses: write
     steps:
       - name: dynamic_navigation
-        run: python todo_List.py
+        run: python .github/workflows/todo_List.py
