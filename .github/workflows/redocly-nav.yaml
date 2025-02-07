@@ -15,6 +15,12 @@ jobs:
       contents: read
       statuses: write
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout repo
+        uses: actions/checkout@v4
       - name: dynamic_navigation
         run: python todo_List.py
+
+      - name: commit and push
+        uses: dan-english/push@v1.3
+
+
