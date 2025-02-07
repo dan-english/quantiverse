@@ -12,5 +12,5 @@ jobs:
       contents: read
       statuses: write
     steps:
-      - name: Checkout
-        run: python ../.github/workflows/todo_List.py
+      - name: dynamic_navigation
+        run: python todo_List.py
