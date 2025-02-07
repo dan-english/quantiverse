@@ -17,10 +17,14 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
+
       - name: dynamic_navigation
         run: python todo_List.py
 
-      - name: commit and push
-        uses: dan-english/push@v1.3
+      - name: stage changed files
+        run: git add .
+
+      - name: commit changed files
+        run: git commit -m "Auto creating sidebar"
 
 
