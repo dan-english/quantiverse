@@ -13,4 +13,4 @@ jobs:
       statuses: write
     steps:
       - name: dynamic_navigation
-        run: python /home/runner/work/quantiverse/.github/workflows/todo_List.py
+        run: python todo_List.py
