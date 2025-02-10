@@ -114,6 +114,4 @@ reunite:
         event: schedule
         interval: 1m
       inputs:
-        API_KEY: '{{ process.env.API_KEY }}'
-        reportType: summary
-        email: 'yuliia.kachmaryk@redocly.com'
+        API_KEY: '{{process.env.CURRENCY_API_KEY}}'
