@@ -5,7 +5,7 @@ info:
 sourceDescriptions:
   - name: currency-api
     type: openapi
-    url: ./openapi.yaml
+    url: https://phronesis-currency-api.redocly.app/_spec/openapi.yaml
 workflows:
   - workflowId: getExchangeRatesWorkflow
     summary: Testing Exchange Rates API
@@ -24,4 +24,3 @@ workflows:
       properties: 
         API_KEY:
           type: string
-          format: password
