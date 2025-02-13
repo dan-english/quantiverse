@@ -1,0 +1,117 @@
+apis:
+  main:
+    root: ./index.md
+extends:
+  - minimal
+
+openapi:
+  layout: 'three-panel'
+  # downloadUrls:
+  #     - title: Download OpenApiDescription
+  #       url: 'https://museum.dev-site.io'
+  showExtensions: true
+
+rules:
+  operation-tag-defined: error
+  no-invalid-schema-examples: error
+  no-invalid-media-type-examples: error
+  scalar-property-missing-example: error
+  rule/operation-summary-sentence-case:
+    subject:
+      type: Operation
+      property: summary
+    message: Operation summary must be sentence cased.
+    assertions:
+      pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
+  rule/example-summary-sentence-case:
+    subject:
+      type: Example
+      property: summary
+    message: Example summary must be sentence cased.
+    assertions:
+      pattern: /^([A-Z]{2,}|[A-Z][^A-Z]*)\b(\s+(?:[A-Z]{2,}|[^A-Z]*)\b)*$/ # Sentence case but allow acronyms
+
+ignore:
+  - .github
+
+logo: 
+  # image: ./images/quantiverse-light-mode.png
+  altText: 'Quantiverse Studios'
+  link: /
+  srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
+
+navbar: 
+  items:
+    - page: /catalog/
+    - page: ./products/api-hub/petstore/petstore.yaml
+      label: 'Pet Store APIs'
+    - page: ./products/api-hub/train/train-travel.yaml
+      label: 'Train APIs'    
+    # - page: ./products/api-hub/admin/admin.yaml
+    #   label: 'Admin API'   
+
+
+feedback:
+  type: rating
+
+# https://redocly.com/docs/realm/config/catalog
+# https://redocly.com/docs/realm/author/how-to/add-catalog
+
+catalog: 
+  museum-catalog:
+    title: API Catalog
+    description: 'A description for the API catalog'
+    slug: /catalog/
+
+    items:
+      - directory: ./products/api-hub/
+        flatten: true
+        includeByMetadata:
+          type: [openapi]
+
+    filters:
+      - title: API Category
+        property: category
+        missingCategoryName: Other
+    
+    groupByFirstFilter: true
+ 
+# the order of this determins the order in the dropdown 
+l10n:
+  defaultLocale: en
+  locales:
+    - code: fr
+      name: French
+    - code: en
+      name: English
+    - code: es-ES
+      name: Spanish (Spain)
+
+
+rbac:
+  content:
+    './products/api-hub/admin/*':
+        Owner: none
+        Member: none
+        anonymous: none
+        authenticated: none
+
+    # './products/museum/@1.0/*':
+    #     authenticated: read
+
+products:
+  apihub:
+    name: API Hub
+    folder: ./products/api-hub
+  museum:
+    name: Museum
+    folder: ./products/museum
+reunite:
+  jobs:
+    - path: '/currency-conventer/monitoring.yaml'
+      agent: spot
+      trigger:
+        event: schedule
+        interval: 1m
+      inputs:
+        API_KEY: '{{process.env.CURRENCY_API_KEY}}'
