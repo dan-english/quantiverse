@@ -97,7 +97,7 @@ rbac:
         Owner: none
         Member: none
         anonymous: none
-        authenticated: '{{rbac-access}}'
+        authenticated: {{rbac-access}}
 
     # './products/museum/@1.0/*':
     #     authenticated: read
