@@ -38,6 +38,7 @@
   {% /step %}
     {% step id="rbac" heading="How to configure RBAC" when={ "redocly": "Config" }  %}
     This step shows you how to configure the RBAC.
+    {% input id="rbac-access" placeholder="none" label="Change access" /%}
   {% /step %}
     {% step id="moni" heading="How to set up the Monitoring" when={ "redocly": "Config" }  %}
     This step shows you how to set up API monitoring.
