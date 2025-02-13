@@ -34,12 +34,15 @@ rules:
 ignore:
   - .github
 
+# @chunk {"steps": ["logo"]}
 logo: 
   # image: ./images/quantiverse-light-mode.png
   altText: 'Quantiverse Studios'
   link: /
   srcSet: './images/quantiverse-light-mode.png light, ./images/quantiverse-dark-mode.png dark'
+# @chunk-end
 
+# @chunk {"steps": ["navbar"]}
 navbar: 
   items:
     - page: /catalog/
@@ -49,7 +52,7 @@ navbar:
       label: 'Train APIs'    
     # - page: ./products/api-hub/admin/admin.yaml
     #   label: 'Admin API'   
-
+# @chunk-end
 
 feedback:
   type: rating
@@ -87,7 +90,7 @@ l10n:
     - code: es-ES
       name: Spanish (Spain)
 
-
+# @chunk {"steps": ["rbac"]}
 rbac:
   content:
     './products/api-hub/admin/*':
@@ -98,7 +101,7 @@ rbac:
 
     # './products/museum/@1.0/*':
     #     authenticated: read
-
+# @chunk-end
 products:
   apihub:
     name: API Hub
@@ -106,6 +109,7 @@ products:
   museum:
     name: Museum
     folder: ./products/museum
+# @chunk {"steps": ["moni"]}
 reunite:
   jobs:
     - path: '/currency-conventer/monitoring.yaml'
@@ -115,3 +119,4 @@ reunite:
         interval: 1m
       inputs:
         API_KEY: '{{process.env.CURRENCY_API_KEY}}'
+# @chunk-end
