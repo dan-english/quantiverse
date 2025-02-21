@@ -1,13 +1,14 @@
+// @chunk {"steps": ["import"]}
 import React from "react";
 import styled from "styled-components";
-
+// @chunk-end
 const Container = styled.div`
   padding: 1.5rem;
   max-width: 48rem;
   margin: 0 auto;
   color: ${({ theme }) => theme.text};
 `;
-
+// @chunk {"steps": ["styled-component"]}
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
@@ -15,6 +16,7 @@ const Title = styled.h1`
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.primary};
 `;
+// @chunk-end
 
 const Section = styled.section`
   margin-bottom: 1.5rem;
@@ -50,9 +52,10 @@ const Footer = styled.footer`
   font-weight: 600;
   color: ${({ theme }) => theme.tertiary};
 `;
-
+// @chunk {"steps": ["create-page"]}
 const QuantiversePage = () => {
   return (
+// @chunk-end
     <Container>
       <Title>Welcome to Quantiverse</Title>
       
@@ -63,16 +66,16 @@ const QuantiversePage = () => {
 
       <Section>
         <Heading>Why Are You Here?</Heading>
-        <p>Maybe you stumbled in by accident, maybe fate brought you here, or maybe—just maybe—you're searching for something greater. Whatever the reason, we’re glad to have you!</p>
+        <p>Maybe you stumbled in by accident, maybe fate brought you here, or maybe—just maybe—you're searching for something greater. Whatever the reason, we're glad to have you!</p>
       </Section>
 
       <Section>
         <Heading>Things You Can Do in Quantiverse</Heading>
         <List>
-          <ListItem><strong>Marvel at the infinite</strong> – No, seriously, look around. Isn’t it cool?</ListItem>
-          <ListItem><strong>Press buttons</strong> – Some do things, some don’t. That’s the fun part!</ListItem>
-          <ListItem><strong>Tell your friends</strong> – Because Quantiverse is better when shared.</ListItem>
-          <ListItem><strong>Discover hidden secrets</strong> – Easter eggs? Maybe. Try exploring!</ListItem>
+          <ListItem><strong>Marvel at the infinite</strong> - No, seriously, look around. Isn't it cool?</ListItem>
+          <ListItem><strong>Press buttons</strong> - Some do things, some don't. That's the fun part!</ListItem>
+          <ListItem><strong>Tell your friends</strong> - Because Quantiverse is better when shared.</ListItem>
+          <ListItem><strong>Discover hidden secrets</strong> - Easter eggs? Maybe. Try exploring!</ListItem>
         </List>
       </Section>
 
@@ -82,14 +85,13 @@ const QuantiversePage = () => {
           <ListItem>42% of visitors claim they left feeling 87% more enlightened.</ListItem>
           <ListItem>The term "Quantiverse" was once whispered by an ancient data sage.</ListItem>
           <ListItem>Every time you read this page, a friendly bot somewhere smiles.</ListItem>
-          <ListItem>Quantiverse operates in multiple dimensions, or so we’ve been told.</ListItem>
+          <ListItem>Quantiverse operates in multiple dimensions, or so we've been told.</ListItem>
         </List>
       </Section>
-
       <Section>
         <Heading>Quotes from Explorers</Heading>
-        <Blockquote>"Quantiverse is like a dream you never want to wake up from!" – A Happy Visitor</Blockquote>
-        <Blockquote>"If magic and technology had a baby, it would be Quantiverse." – An Enthusiastic Coder</Blockquote>
+        <Blockquote>"Quantiverse is like a dream you never want to wake up from!" - A Happy Visitor</Blockquote>
+        <Blockquote>"If magic and technology had a baby, it would be Quantiverse."  An Enthusiastic Coder</Blockquote>
       </Section>
 
       <Section>
@@ -105,5 +107,6 @@ const QuantiversePage = () => {
     </Container>
   );
 };
-
+// @chunk {"steps": ["export"]}
 export default QuantiversePage;
+// @chunk-end
