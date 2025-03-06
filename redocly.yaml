@@ -8,7 +8,7 @@ extends:
 reunite:
   jobs:
     - path: ./workflows/a.yaml
-      agent: spot
+      agent: respect
       trigger:
         event: schedule
         interval: 1m
