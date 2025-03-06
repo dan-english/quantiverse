@@ -9,7 +9,7 @@
 ---
 * Document API described with OpenAPI
 * 2
----
+---   
 * Set up your navbar, footer, and sidebar
 * 2
 ---
