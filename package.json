@@ -7,6 +7,7 @@
   "private": true,
   "description": "Demo of a template with instructions",
   "dependencies": {
-    "@redocly/realm": "0.119.0"
+    "@redocly/realm": "0.119.0",
+    "react-ga4": "^2.1.0"
   }
 }
