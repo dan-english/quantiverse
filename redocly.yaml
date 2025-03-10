@@ -109,9 +109,22 @@ products:
 reunite:
   jobs:
     - path: '/currency-conventer/monitoring.yaml'
-      agent: spot
+      agent: respect
       trigger:
         event: schedule
         interval: 1m
       inputs:
         API_KEY: '{{process.env.CURRENCY_API_KEY}}'
+
+
+analytics:
+  ga:
+    includeInDevelopment: true
+    trackingId: G-Y95BGFEPNM
+    exclude:
+      - /private-docs/**
+    # Only configured globally in the root redocly.yaml
+    head: true
+    anonymizeIp: true
+    respectDNT: false
+    cookieExpires: 63072000
