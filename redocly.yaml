@@ -87,18 +87,6 @@ l10n:
     - code: es-ES
       name: Spanish (Spain)
 
-
-rbac:
-  content:
-    './products/api-hub/admin/*':
-        Owner: none
-        Member: none
-        anonymous: none
-        authenticated: none
-
-    # './products/museum/@1.0/*':
-    #     authenticated: read
-
 products:
   apihub:
     name: API Hub
