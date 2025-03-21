@@ -95,6 +95,7 @@ products:
     name: Museum
     folder: ./products/museum
 reunite:
+  ignoreLint: true
   jobs:
     - path: '/currency-conventer/monitoring.yaml'
       agent: respect
