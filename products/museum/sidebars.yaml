@@ -10,3 +10,7 @@
     - directory: ./@1.0
     - directory: ./@2.0
     - directory: ./@3
+
+- page: ../../changelog/index.md
+  group: Changelog
+  disconnect: true

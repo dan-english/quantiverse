@@ -39,6 +39,9 @@
     - separatorLine: true
     - page: ./products/api-hub/admin/admin.yaml
 
+- page: ./changelog/index.md
+  group: Changelog
+
 # - group: Museum Stuff
 #   items:  
 #     - directory: ./products/museum/@1.0

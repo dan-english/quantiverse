@@ -47,6 +47,8 @@ navbar:
       label: 'Pet Store APIs'
     - page: ./products/api-hub/train/train-travel.yaml
       label: 'Train APIs'    
+    - page: ./changelog/index.md
+      label: 'Changelog'
     # - page: ./products/api-hub/admin/admin.yaml
     #   label: 'Admin API'   
 
