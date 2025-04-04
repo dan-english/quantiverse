@@ -42,6 +42,9 @@
 - page: ./changelog/index.md
   group: Changelog
 
+- page: ./tabs/tabs.md
+  label: API authentication methods
+
 # - group: Museum Stuff
 #   items:  
 #     - directory: ./products/museum/@1.0
