@@ -1,0 +1,13 @@
+{
+  "name": "lost-invention-mission",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node travel.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
