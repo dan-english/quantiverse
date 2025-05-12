@@ -1,6 +1,10 @@
 - page: index.md
   label: Home
 
+- group: Debriefs
+  items:
+    - directory: debriefs
+
 - page: about.md
   label: About
 
