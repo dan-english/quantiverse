@@ -27,3 +27,5 @@ Process failed with code "1" and signal "null"
 at ./@api/weather.ts:1:1
 ```
 * Sometimes we see `colorScheme=dark` in the URL query, but it shouldn't be there.
+* It would be much easier to call API function from code by showing play button above the function (similar to test extensions do).
+{% img src="./images/Screenshot 2025-05-09 at 13.05.47.png" alt="Screenshot 2025-05-09 at 13.05.47.png" withLightbox=true width="" height="" /%}
