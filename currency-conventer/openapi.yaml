@@ -12,6 +12,8 @@ paths:
       operationId: getExchangeRates
       summary: Retrieve exchange rates
       description: Get current currency exchange rates.
+      tags:
+        - Operations
       parameters:
         - name: ApiKey
           in: header
@@ -47,3 +49,6 @@ components:
       name: ApiKey
 security:
   - ApiKeyAuth: []
+tags:
+  - name: Operations
+    description: Operational information.

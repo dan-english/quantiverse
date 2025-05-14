@@ -13,6 +13,8 @@ paths:
       operationId: getAllUsers
       summary: Get all users
       description: Retrieve a list of all users
+      tags:
+        - Operations
       security:
         - apiKeyAuth: []
    
@@ -41,6 +43,8 @@ paths:
       operationId: getUser
       summary: Get user by ID
       description: Retrieve user details by ID
+      tags:
+        - Operations
       parameters:
         - name: userId
           in: path
@@ -71,6 +75,10 @@ paths:
       operationId: deleteUser
       summary: Delete user by ID
       description: Delete a user by ID
+      tags:
+        - Operations
+      security:
+        - apiKeyAuth: []
       parameters:
         - name: userId
           in: path
@@ -87,6 +95,8 @@ paths:
       operationId: resetUserPassword
       summary: Reset user password
       description: Reset the password for a user
+      tags:
+        - Operations
       parameters:
         - name: userId
           in: path
@@ -117,3 +127,6 @@ components:
       in: header
       name: X-API-Key
       description: API key required to access the Admin API
+tags:
+  - name: Operations
+    description: Operational information.

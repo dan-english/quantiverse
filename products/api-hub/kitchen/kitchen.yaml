@@ -11,6 +11,10 @@ paths:
     post:
       summary: Add a new ingredient
       operationId: createIngredient
+      security:
+        - apiKeyAuth: []
+      tags:
+        - Operations
       requestBody:
         required: true
         content:
@@ -80,6 +84,10 @@ paths:
     get:
       summary: List all ingredients
       operationId: listIngredients
+      security:
+        - apiKeyAuth: []
+      tags:
+        - Operations
       parameters:
         - name: limit
           in: query
@@ -164,6 +172,10 @@ paths:
     get:
       summary: Get an ingredient by ID
       operationId: getIngredient
+      security:
+        - apiKeyAuth: []
+      tags:
+        - Operations
       parameters:
         - name: ingredientId
           in: path
@@ -217,3 +229,13 @@ paths:
                 unit: "cups"
                 useBefore : ""
                 createdAt: ""
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key required to access the Admin API
+tags:
+  - name: Operations
+    description: Operational information.
