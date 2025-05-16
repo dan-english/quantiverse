@@ -96,16 +96,16 @@ products:
   museum:
     name: Museum
     folder: ./products/museum
-reunite:
-  ignoreLint: true
-  jobs:
-    - path: '/currency-conventer/monitoring.yaml'
-      agent: respect
-      trigger:
-        event: schedule
-        interval: 1m
-      inputs:
-        API_KEY: '{{process.env.CURRENCY_API_KEY}}'
+# reunite:
+#   ignoreLint: true
+#   jobs:
+#     - path: '/currency-conventer/monitoring.yaml'
+#       agent: respect
+#       trigger:
+#         event: schedule
+#         interval: 1m
+#       inputs:
+#         API_KEY: '{{process.env.CURRENCY_API_KEY}}'
 
 
 analytics:
