@@ -6,15 +6,14 @@
 --logo-max-height:250px;
 
 
---h1-text-color:#0000dd;
---h2-text-color:#00ff00;
-
+--h1-text-color:#b01ddd;
+--h2-text-color:#a215a4;
 }
 
-.ftdpnl {
+/* .ftdpnl {
   background-color: lightpink;
   max-width:fit-content;
-}
+} */
 
 /* 
 .gTRpEB {
@@ -32,17 +31,24 @@
 } */
 
 
-:root.dark {
+/* :root.dark {
     --h1-text-color:#ff0000;
     --feedback-hat-color: hsl(304, 89%, 59%);
-}
+} */
 
-:root div[data-component-name="Admonition/Admonition"][type="danger"] {
+/* :root div[data-component-name="Admonition/Admonition"][type="danger"] {
     font-weight:bold;
     border:2px solid #00ff00;
+} */
+
+
+/* Style all cells in rows containing the class */
+:root tr:has(.yellow) > * {
+  background-color: yellow;
+  --md-table-cell-text-color: black;
 }
 
-.yellow {
-  background-color: yellow;
-  color: #fff;
+:root.dark tr:has(.yellow) > * {
+  background-color: gold;
+  --md-table-cell-text-color: black;
 }
