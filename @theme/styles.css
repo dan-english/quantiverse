@@ -41,7 +41,14 @@
     border:2px solid #00ff00;
 } */
 
-.yellow {
+
+/* Style all cells in rows containing the class */
+:root tr:has(.yellow) > * {
   background-color: yellow;
-  color: #fff;
+  --md-table-cell-text-color: black;
+}
+
+:root.dark tr:has(.yellow) > * {
+  background-color: gold;
+  --md-table-cell-text-color: black;
 }
