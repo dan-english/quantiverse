@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: x-security training
+  version: 1.0.0
+
+sourceDescriptions:
+  - name: x-security-api
+    type: openapi
+    url: https://x-security.redocly.app/_spec/openapi.yaml
+
+workflows:
+  - workflowId: x-security-training
+    inputs:
+      type: object
+      properties:
+        API_KEY:
+          type: string
+          format: password
+    # Workaround for API function cache issue
+    parameters:
+      - name: random
+        value: $faker.string.uuid()
+        in: query
+    steps:
+      - stepId: initiatePadawanAccessStep
+        description: Begin your training. Use API Key to unlock the first gate.
+        operationId: initiatePadawanAccess
+        x-security:
+          - schemeName: apiKeyAuth
+            values:
+              apiKey: $inputs.API_KEY
+        outputs:
+          username: $response.body#/username
+          password: $response.body#/password
+        successCriteria:
+          - condition: $statusCode == 200
+
+      - stepId: enterBasicProtocolStep
+        description: With new knowledge, use basic credentials from previous step to move deeper into the system.
+        x-security:
+          - scheme:
+              type: http
+              scheme: basic
+            values:
+              username: $steps.initiatePadawanAccessStep.outputs.username
+              password: $steps.initiatePadawanAccessStep.outputs.password
+        outputs:
+          token: $response.body#/token
+          format: $response.body#/format
+        x-operation:
+          method: get
+          url: https://x-security.redocly.app/api/basic-auth
+        successCriteria:
+          - condition: $statusCode == 200
+
+      - stepId: completeBearerTrialStep
+        description: Prove your strength by using bearer-level credentials.
+        x-security:
+          - scheme:
+              type: http
+              scheme: bearer
+              bearerFormat: $steps.enterBasicProtocolStep.outputs.format
+            values:
+              token: $steps.enterBasicProtocolStep.outputs.token
+        x-operation:
+          method: get
+          url: https://x-security.redocly.app/api/bearer-auth
+        outputs:
+          username: $response.body#/username
+          password: $response.body#/password
+        successCriteria:
+          - condition: $statusCode == 200
+
+      - stepId: revealForceProphecyStep
+        description: You're close. The Force whispers its secret.
+        x-security:
+          - scheme:
+              type: http
+              scheme: digest
+            values:
+              username: $steps.completeBearerTrialStep.outputs.username
+              password: $steps.completeBearerTrialStep.outputs.password
+        x-operation:
+          method: get
+          url: https://x-security.redocly.app/api/secret
+        successCriteria:
+          - condition: $statusCode == 200

@@ -119,3 +119,13 @@ analytics:
     anonymizeIp: true
     respectDNT: false
     cookieExpires: 63072000
+
+reunite:
+  jobs:
+    - path: 'respect-monitoring/x-security-training.yaml'
+    agent: respect
+      trigger:
+        event: schedule
+        interval: 1m
+      inputs:
+        API_KEY: '{{process.env.X_SECURITY_API_KEY}}'
