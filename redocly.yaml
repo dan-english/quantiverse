@@ -126,6 +126,6 @@ reunite:
       agent: respect
       trigger:
         event: schedule
-        interval: 1m
+        interval: 1d
       inputs:
         API_KEY: '{{process.env.X_SECURITY_API_KEY}}'
