@@ -123,7 +123,7 @@ analytics:
 reunite:
   jobs:
     - path: 'respect-monitoring/x-security-training.yaml'
-    agent: respect
+      agent: respect
       trigger:
         event: schedule
         interval: 1m
